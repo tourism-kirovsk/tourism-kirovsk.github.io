@@ -1,22 +1,14 @@
 body { margin:0; font-family:"Segoe UI", sans-serif; background:#f8f9fa; color:#111; } 
 
-.hero{
-  height:100vh;
-
-  background-image:
-    linear-gradient(
-      rgba(0,0,0,0.45),
-      rgba(0,0,0,0.45)
-    ),
-    url("hero.jpg");
-
+.hero {
+  background: url("https://tourism-kirovsk.github.io/hero.jpg") center/cover no-repeat;
+}
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-
   position:relative;
 }
-.hero-overlay { background:rgba(0,0,50,0.5); width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:white; }
+.hero-overlay { width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:white; }
 .hero-overlay h1 { font-size:3em; margin-bottom:0.5em; } 
 .hero-overlay p { font-size:1.5em; margin-bottom:1em; } 
 .hero-overlay button { padding:15px 30px; font-size:1em; border:none; border-radius:8px; background:#3FA9F5; color:white; cursor:pointer; } 
