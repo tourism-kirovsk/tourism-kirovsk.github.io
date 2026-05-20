@@ -2,14 +2,12 @@ body { margin:0; font-family:"Segoe UI", sans-serif; background:#f8f9fa; color:#
 
 .hero{
   height:100vh;
-
-  background-image:
-    linear-gradient(
-      rgba(0,0,0,0.45),
-      rgba(0,0,0,0.45)
-    ),
-    url("hero.jpg");
-
+ background-image:
+linear-gradient(
+rgba(0,0,0,0.45),
+rgba(0,0,0,0.45)
+),
+url("https://tourism-kirovsk.github.io/hero.jpg");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
