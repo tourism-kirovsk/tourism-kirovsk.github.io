@@ -1,0 +1,121 @@
+body { margin:0; font-family:"Segoe UI", sans-serif; background:#f8f9fa; color:#111; } 
+
+.hero{
+  height:100vh;
+
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.45)
+    ),
+    url("hero.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  position:relative;
+}
+.hero-overlay { background:rgba(0,0,50,0.5); width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:white; }
+.hero-overlay h1 { font-size:3em; margin-bottom:0.5em; } 
+.hero-overlay p { font-size:1.5em; margin-bottom:1em; } 
+.hero-overlay button { padding:15px 30px; font-size:1em; border:none; border-radius:8px; background:#3FA9F5; color:white; cursor:pointer; } 
+.navbar { display:flex; padding:10px 20px; background:#ffffff; gap:10px; align-items:center; border-bottom:2px solid #ddd; position:sticky; top:0; z-index:1000; } 
+.nav-cat { padding:8px 15px; cursor:pointer; border-radius:6px; background:#e9ecef; font-size:1em; } 
+.nav-cat.active { background:#3FA9F5; color:white; } 
+#filterRating { margin-left:auto; padding:6px; border-radius:6px; } 
+.main { display:flex; height:90vh; } 
+.sidebar { width:300px; overflow-y:auto; border-right:1px solid #ddd; background:#fff; } 
+.card { padding:15px; border-bottom:1px solid #eee; cursor:pointer; } 
+.card:hover { background:#f0f0f0; } 
+.card h3 { margin:0 0 6px 0; font-size:1.1em; } 
+.card .rating { color:#ffb400; font-size:0.9em; } 
+.card button { margin-top:6px; padding:6px 10px; border:none; background:#3fa9f5; color:white; border-radius:5px; cursor:pointer; } 
+#map { flex:1; height:70vh; /* уменьшили высоту карты */ margin: 20px; /* белые поля вокруг карты */ border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background:white; } 
+.route-panel { position:fixed; bottom:10px; right:10px; background:rgba(255,255,255,0.9); padding:10px; border-radius:8px; box-shadow:0 0 6px rgba(0,0,0,0.2); } 
+.route-panel button { margin:5px 3px; padding:8px 12px; border:none; border-radius:6px; background:#3fa9f5; color:white; cursor:pointer; } 
+.recommended { padding:20px; background:#fff; } 
+.recommended-list { display:flex; flex-wrap:wrap; gap:15px; } 
+.route-card { background:#fff; border:1px solid #ddd; width:240px; padding:15px; border-radius:7px; } 
+.route-card button { display:block; margin-top:10px; width:100%; background:#3fa9f5; color:white; border:none; padding:8px; border-radius:6px; cursor:pointer; } 
+.leaflet-popup-content h3 { margin:0; font-size:1.1em; } 
+.leaflet-popup-content .rating { color:#ffb400; font-size:0.9em; margin-top:4px; } 
+.leaflet-popup-content button { margin-top:6px; padding:5px 10px; border:none; background:#3fa9f5; color:white; border-radius:5px; cursor:pointer; } 
+.categories { display:flex; gap:10px; padding:10px; flex-wrap:wrap; } 
+.categories button { background:#1e90ff; color:white; border:none; padding:12px 18px; border-radius:10px; font-size:16px; cursor:pointer; transition:0.3s; } 
+.categories button:hover { background:#0b6edc; } 
+.main-btn { background:#1e90ff; color:white; padding:15px 30px; border:none; border-radius:12px; font-size:20px; cursor:pointer; } 
+#routes {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px;
+  margin-top: -10px;
+}
+.routes-title {
+  margin-top: -50px;
+}
+.route-card { min-width: 200px; /* ширина карточки */ flex: 0 0 auto; border:1px solid #1e90ff; border-radius:10px; padding:8px; background:#f0f8ff; } 
+#sidebar { width: 300px; max-height: 80vh; overflow-y: auto; padding: 10px; border-right: 2px solid #0a1f44; background: #f8f9fa; } 
+#sidebar .place-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 12px;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: 0.2s;
+}
+
+#sidebar .place-card:hover {
+  transform: translateY(-2px);
+}
+#sidebar {
+  font-family: "Segoe UI", sans-serif;
+}
+/* общий шрифт и стиль */ #searchInput, #ratingFilter { font-family: 'Montserrat', sans-serif; font-size: 16px; background: #1e90ff; 
+/* синий фон */ color: white; /* белый текст */ border: none; border-radius: 10px; padding: 10px; cursor: pointer; transition: 0.3s; } 
+/* эффект наведения */ #searchInput:hover, #ratingFilter:hover { background: #0b6edc; } 
+/* если нужно для текста placeholder */ #searchInput::placeholder { color: #e0e0e0; } 
+.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); } 
+.modal-content { background: #fff; margin: 5% auto; padding: 20px; width: 80%; max-height: 80%; overflow-y: auto; border-radius: 10px; } 
+.close { float: right; font-size: 28px; cursor: pointer; }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+#sidebar .place-card button {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: none;
+  background: #1e90ff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+#sidebar .place-card button:hover {
+  background: #0b6edc;
+}
