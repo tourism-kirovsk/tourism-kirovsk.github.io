@@ -429,3 +429,4 @@ window.showFavorites = showFavorites;
 window.closeFavorites = closeFavorites;
 window.removeFromFavorites = removeFromFavorites;
 window.scrollToMap = scrollToMap;
+window.exportRoutePDF = exportRoutePDF;
