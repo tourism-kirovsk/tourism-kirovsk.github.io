@@ -46,8 +46,8 @@ onclick="scrollToMap()">Спланировать маршрут</button>
 
 <!-- Панель маршрута --> <div class="route-panel">
  <button onclick="saveRoute()">💾 Сохранить маршрут</button>
- <button onclick="loadRoute()">📂 Загрузить маршрут</button>
- <button onclick="exportRoute()">📤 Экспорт</button>
+ <button onclick="loadRoute()">📂 Показать сохраненный маршрут</button>
+ <button onclick="exportRoutePDF()">📤 Скачать</button>
  </div> 
 <!-- Предложенные маршруты --> 
 <h2 class="routes-title">Готовые маршруты</h2>
@@ -55,6 +55,7 @@ onclick="scrollToMap()">Спланировать маршрут</button>
 
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script defer src="app.js"></script>
 
 <!-- Модалка избранного -->
