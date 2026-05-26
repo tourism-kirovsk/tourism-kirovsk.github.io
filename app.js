@@ -303,7 +303,124 @@ function renderReadyRoutes(){
     container.appendChild(div);
   });
 }
+async function exportRoutePDF() {
 
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF("p", "mm", "a4");
+
+  // ===== СКРИН КАРТЫ =====
+
+  const mapElement = document.getElementById("map");
+
+  const canvas = await html2canvas(mapElement);
+
+  const mapImage = canvas.toDataURL("image/png");
+
+  // ===== ЗАГОЛОВОК =====
+
+  doc.setFontSize(24);
+  doc.setTextColor(30, 144, 255);
+
+  doc.text("Туристический маршрут Кировска", 20, 20);
+
+  // дата
+  doc.setFontSize(11);
+  doc.setTextColor(100);
+
+  doc.text(
+    "Дата: " + new Date().toLocaleDateString(),
+    20,
+    28
+  );
+
+  // ===== КАРТА =====
+
+  doc.addImage(
+    mapImage,
+    "PNG",
+    15,
+    35,
+    180,
+    90
+  );
+
+  // ===== СПИСОК МЕСТ =====
+
+  let y = 140;
+
+  doc.setFontSize(18);
+  doc.setTextColor(0);
+
+  doc.text("Маршрут:", 20, y);
+
+  y += 10;
+
+  route.forEach((point, index) => {
+
+    const place = allPlaces.find(
+      p => p.lat === point[0] && p.lon === point[1]
+    );
+
+    if (place) {
+
+      doc.setFontSize(14);
+
+      doc.text(
+        `${index + 1}. ${place.name}`,
+        25,
+        y
+      );
+
+      y += 7;
+
+      doc.setFontSize(11);
+
+      doc.text(
+        `⭐ ${place.rating}   🕒 ${place.hours}`,
+        30,
+        y
+      );
+
+      y += 10;
+    }
+  });
+
+  // ===== ИНФОРМАЦИЯ =====
+
+  y += 5;
+
+  doc.setFontSize(13);
+
+  doc.text(
+    `Количество точек: ${route.length}`,
+    20,
+    y
+  );
+
+  y += 8;
+
+  doc.text(
+    `Маршрут построен через сервис туристических маршрутов`,
+    20,
+    y
+  );
+
+  // ===== FOOTER =====
+
+  doc.setFontSize(10);
+  doc.setTextColor(120);
+
+  doc.text(
+    "Kirovsk Travel • Хибины • Arctic Russia",
+    20,
+    285
+  );
+
+  // ===== СОХРАНЕНИЕ =====
+
+  doc.save("kirovsk-route.pdf");
+}
 // старт 
 applyFilters();
 renderReadyRoutes();
